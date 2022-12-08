@@ -1,0 +1,31 @@
+
+ (define serie1
+        (lambda (n)
+          (if (= n 1) (list (expt n (* 2 (+ n 1))) )
+              (append (serie1 (- n 1)) (list (expt n (* 2 (+ n 1))) ))
+          )
+        )
+    )
+(display "Ex1. Seria:  ")
+(display (serie1 20))
+(newline)
+(newline)
+(display (modulo (length (serie1 20)) 3 ))
+(display (cdr (serie1 20)))
+
+(define f1( lambda (x) (- (* (- 0 2) x) 3) ))
+
+(define serie2 (lambda (lst)
+                 (if (< (length lst) 1) 
+                     '()
+                     ( if (= (remainder (length lst) 3) 1) 
+                       (cons (car lst) (serie2 (cdr lst)))
+                       (serie2 (cdr lst))
+                     )
+                )
+                 ))
+(newline)
+(newline)
+ (display "Ex3. Seria:  ")
+ (display (serie2 (serie1 20) ))
+
